@@ -1,5 +1,5 @@
 <?php
-
+/*hiii this is a test*/
 class ProjectsUser {
 	Schema::create('projects', function($table)){
 		$table->increment('project_id')->unique();
