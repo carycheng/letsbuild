@@ -1,26 +1,11 @@
 <?php
+	class User extends Eloquent{
+		//need to include updated_at and created_at parameters to utilize timestamp()
+		protected $fillable = array('name', 'projects_worked_on', 'updated_at', 'created_at');
 
-use Illuminate\Auth\UserTrait;
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableTrait;
-use Illuminate\Auth\Reminders\RemindableInterface;
+		public function projects(){
+			return $this->belongsToMany('Project' , 'projects_users', 'users_id', 'projects_id');
+		}
+	}
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
-
-	use UserTrait, RemindableTrait;
-
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'users';
-
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = array('password', 'remember_token');
-
-}
+?>
