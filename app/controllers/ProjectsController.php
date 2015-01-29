@@ -1,12 +1,13 @@
 <?php
 	class ProjectsController extends BaseController{
 		public function postProject(){
-			if(Input:has('description', 'Category', 'hoursNeeded', 'teamSize')){
+			if(Input:has('description', 'Category', 'hoursNeeded', 'teamSize', 'title')){
 					$project = new Project;
 					$project->description = $input['description'];
 					$project->Category = $input['Category'];
-					$project->hoursNeeded = $input['hoursNeeded'];
-					$project->teamSize = $input['teamSize'];
+					$project->hoursNeeded = intval($input['hoursNeeded']);
+					$project->teamSize = intval($input['teamSize']);
+					$project->title = $input['title'];
 					$customer->save();
 					return $customer;
 			}
