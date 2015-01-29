@@ -5,7 +5,7 @@
 <html>
 	<head><title>test</title>
 	<body>
-		<form action = "controllers" method = "post">
+		<form action = "controllers" method = "get">
 			Title: <input type = "text" name = "title"><br>
 			Description: <input type = "text" name = "description"><br>
 			Category: <input type = "text" name = "Category"><br>
