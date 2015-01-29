@@ -2,13 +2,13 @@
 	class ProjectsController extends BaseController{
 		public function postProject(){
 			if(Input::has('description', 'hoursNeeded'/*, 'teamSize', 'title'*/)){
-					$result = Input::all();
-					//$title = Input::get('title');
+				//	$result = Input::all();
+					//$title = Input::get("title");
 					$description = Input::get('description');
-					//$category = Input::get('Category');
-					//$teamSize = intval(Input::get('teamSize'));
+					$category = Input::get('Category');
+					$teamSize = intval(Input::get('teamSize'));
 					$hoursNeeded = intval(Input::get('hoursNeeded'));
-					DB::table('projects')->insert(array('description' => $description,'hoursNeeded' => $hoursNeeded));
+					DB::table('projects')->insert(array(/*'title' =>$title,*/ 'description' => $description, 'Category' => $category, 'teamSize' => $teamSize, 'hoursNeeded' => $hoursNeeded));
 					//$project = new Project;
 					//$project->description = $description;
 					//$project->Category = $category
