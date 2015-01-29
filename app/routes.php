@@ -17,4 +17,8 @@ Route::get('/', function()
 });
 
 /*Route::get('/', 'test1');*/
-Route::get('/controllers', 'ProjectsController@postProject');
+Route::post('/controllers', 'ProjectsController@postProject');
+
+Route::get('/redirect', function(){
+	return View::make('redirectest');
+});

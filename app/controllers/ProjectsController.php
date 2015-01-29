@@ -2,6 +2,7 @@
 	class ProjectsController extends BaseController{
 		public function postProject(){
 			if(Input::has('description', 'hoursNeeded'/*, 'teamSize', 'title'*/)){
+					$result = Input::all();
 					//$title = Input::get('title');
 					$description = Input::get('description');
 					//$category = Input::get('Category');
@@ -16,6 +17,10 @@
 					//$project->title = $title;
 					//$project->save();
 					//return $project;
+					return Redirect::to('redirect');
+
+
+
 			}
 			// else
 			// 	return Response::make("Fill in all the fields");
