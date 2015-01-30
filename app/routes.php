@@ -22,3 +22,5 @@ Route::post('/controllers', 'ProjectsController@postProject');
 Route::get('/redirect', function(){
 	return View::make('redirectest');
 });
+
+Route::get('/delete', 'ProjectsController@deletePost');

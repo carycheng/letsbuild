@@ -13,5 +13,7 @@
 			Team Size: <input type = "text" name = "teamSize"><br>
 			<input type = "submit">
 		</form>
+
+		<button><a href = "delete">Delete Me</a></button>
 	</body>
 </html>

@@ -15,14 +15,14 @@ class CreateProjetsTable extends Migration {
 		Schema::create('projects', function(Blueprint $table)
 		{
 			// $table->increments('id');
-			// $table->timestamps();
+				 //$table->timestamps();
 			// $table->
 				$table->text('title');
 				$table->increments('id');
 				$table->integer('projects_id');
 				$table->string('rating');
 				$table->mediumText('description');
-				$table->timestamp('DateTimeAdded');
+				$table->timestamps('DateTimeAdded');
 				$table->string('Category', 50);
 				$table->integer('hoursNeeded');
 				$table->integer('teamSize');

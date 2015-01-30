@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration {
 				$table->increments('id');
 				$table->integer('users_id');
 				$table->string('name');
+				$table->timestamps("data_added");
 				$table->string('projects_worked_on');
 		});
 	}

@@ -1,29 +1,21 @@
 <?php
 	class ProjectsController extends BaseController{
 		public function postProject(){
-			if(Input::has('description', 'hoursNeeded'/*, 'teamSize', 'title'*/)){
+			if(Input::has('description', 'Category', 'hoursNeeded', 'teamSize' /*'title'*/)){
 				//	$result = Input::all();
-					//$title = Input::get("title");
+					$title = Input::get("title");
 					$description = Input::get('description');
 					$category = Input::get('Category');
 					$teamSize = intval(Input::get('teamSize'));
 					$hoursNeeded = intval(Input::get('hoursNeeded'));
-					DB::table('projects')->insert(array(/*'title' =>$title,*/ 'description' => $description, 'Category' => $category, 'teamSize' => $teamSize, 'hoursNeeded' => $hoursNeeded));
-					//$project = new Project;
-					//$project->description = $description;
-					//$project->Category = $category
-					//$project->hoursNeeded = $hoursNeeded;
-					//$project->teamSize = $teamSize;
-					//$project->title = $title;
-					//$project->save();
-					//return $project;
+					$date = new \DateTime;
+					DB::table('projects')->insert(array('title' =>$title, 'description' => $description, 
+						'Category' => $category, 'teamSize' => $teamSize, 'hoursNeeded' => $hoursNeeded, 'created_at' => $date, 'updated_at' => $date));
 					return Redirect::to('redirect');
 
-
-
 			}
-			// else
-			// 	return Response::make("Fill in all the fields");
+			else
+				return Response::make("Fill in all the fields");
 		}
 		
 		// public function findProject(){
@@ -37,11 +29,22 @@
 		// 	}
 		// }
 		
-		// public function deletePost(){
-		// 	$current_time = date('Y-m-d H:i:s', time());
-		// 	$now = strtotime($current_time);
+		public function deletePost(){
+			$current_time = date('Y-m-d H:i:s', time());
+
+			echo $current_time;
+			$now = strtotime($current_time);
+
+			echo $now;
+
+			$expire = $now - 86400;
+			echo '<br>';
+			echo $expire;
+
+
+			DB::table('projects')->where('created_at' , '<' , $expire)->delete();
 			
-		// }
+		}
 		
 		// public function updateRate(){
 		// 	if(Input::has('projects_id')){
