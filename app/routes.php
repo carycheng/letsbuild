@@ -24,3 +24,5 @@ Route::get('/redirect', function(){
 });
 
 Route::get('/delete', 'ProjectsController@deletePost');
+
+Route::post('/find', 'ProjectsController@findProject');

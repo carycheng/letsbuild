@@ -18,16 +18,16 @@
 				return Response::make("Fill in all the fields");
 		}
 		
-		// public function findProject(){
-		// 	if(Input::has('Category')){
-		// 		$category = Input::get('Category');
-		// 		$result = DB::table('projects')->where('Category', '=', $category)->get();
-		// 		return $result;	
-		// 	}
-		// 	else{
-		// 		return Response::make("Fill in all the fields");
-		// 	}
-		// }
+		public function findProject(){
+			if(Input::has('term')){
+				$category = Input::get('term');
+				$result = DB::table('projects')->select('description')->where('description', 'LIKE', '%'.$category.'%' )->get();
+				return $result;	
+			}
+			// else{
+			// 	return Response::make("Fill in all the fields");
+			// }
+		}
 		
 		public function deletePost(){
 			$current_time = date('Y-m-d H:i:s', time());
@@ -53,5 +53,6 @@
 		// 		DB::table('projects')->where('project_id', '=', $id)->update(array('rating'=>$project->rating + 1));
 		// 	}
 		// }
+
 	}
 ?>

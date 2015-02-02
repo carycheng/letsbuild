@@ -14,6 +14,13 @@
 			<input type = "submit">
 		</form>
 
+		<form action="find" method="post">
+        	Search: <input type="text" name="term" /><br />
+      		<input type="submit" name="submit" value="Submit" />
+      	</form>
+
 		<button><a href = "delete">Delete Me</a></button>
+
+
 	</body>
 </html>
