@@ -1,16 +1,16 @@
 <?php
 	class ProjectsController extends BaseController{
 		public function postProject(){
-			if(Input::has('description', 'Category', 'hoursNeeded', 'teamSize' /*'title'*/)){
+			if(Input::has('description', 'category', 'hoursNeeded', 'teamSize' /*'title'*/)){
 				//	$result = Input::all();
 					$title = Input::get("title");
 					$description = Input::get('description');
-					$category = Input::get('Category');
+					$category = Input::get('category');
 					$teamSize = intval(Input::get('teamSize'));
 					$hoursNeeded = intval(Input::get('hoursNeeded'));
 					$date = new \DateTime;
 					DB::table('projects')->insert(array('title' =>$title, 'description' => $description, 
-						'Category' => $category, 'teamSize' => $teamSize, 'hoursNeeded' => $hoursNeeded, 'created_at' => $date, 'updated_at' => $date));
+						'category' => $category, 'teamSize' => $teamSize, 'hoursNeeded' => $hoursNeeded, 'created_at' => $date, 'updated_at' => $date));
 					return Redirect::to('redirect');
 
 			}
@@ -27,6 +27,7 @@
 			// else{
 			// 	return Response::make("Fill in all the fields");
 			// }
+			return 'problem';
 		}
 		
 		public function deletePost(){

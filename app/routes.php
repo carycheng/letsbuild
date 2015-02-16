@@ -11,10 +11,22 @@
 |
 */
 
+
+// Front End Routes
 Route::get('/', function()
 {
-	return View::make('test1');
+	return View::make('landing');
 });
+Route::get('/search', function() {
+	return View::make('search.search');
+});
+Route::post('/search', 'ProjectsController@findProject');
+Route::get('/post', function() {
+	return View::make('post.post');
+});
+Route::post('/post', 'ProjectsController@postProject');
+
+
 
 /*Route::get('/', 'test1');*/
 Route::post('/controllers', 'ProjectsController@postProject');
@@ -22,6 +34,8 @@ Route::post('/controllers', 'ProjectsController@postProject');
 Route::get('/redirect', function(){
 	return View::make('redirectest');
 });
+
+// API Routes
 
 Route::get('/delete', 'ProjectsController@deletePost');
 
